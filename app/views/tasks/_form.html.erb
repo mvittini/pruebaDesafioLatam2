@@ -1,5 +1,9 @@
 <%= form_for [@project, Task.new], html: {class: 'col-md-6'} do |f| %>
 	<div class="form-group">
+		<%= f.label :title%>
+		<%= f.text_field :title %>
+	</div>
+	<div class="form-group">
 		<%= f.label :content, "contenido" %>
 		<%= f.text_area :content, rows: 8,  class: 'form-control' %>
 	</div>
