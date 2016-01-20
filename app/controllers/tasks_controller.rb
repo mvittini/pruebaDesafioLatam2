@@ -6,7 +6,10 @@ class TasksController < ApplicationController
     project = Project.find(params[:project_id])
 
     @task = project.tasks.build(task_params)
-    @task.user = current_user if user_signed_in?
+
+    if @task.user == nil
+      @task.user = current_user if user_signed_in?
+    end
     @task.save
 
     redirect_to project
@@ -24,6 +27,6 @@ class TasksController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:content)
+      params.require(:task).permit(:content, :user_id, :status)
     end
 end

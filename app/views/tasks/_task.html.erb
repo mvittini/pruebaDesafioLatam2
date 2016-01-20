@@ -2,10 +2,16 @@
 	<div class="col-md-6">
 		<div class="card text-md-center">
 		  <div class="card-header">
+		  	<p>Usuario responsable:</p>
 		    <%= task.user %>
 		  </div>
 		  <div class="card-block">
+		  	<p>tarea:</p>
 		    <p class="card-text"><%= task.content %></p>
+		  </div>
+		   <div class="card-block">
+		  	<p>estado:</p>
+		    <p class="card-text"><%= task.status %></p>
 		  </div>
 		  <div class="card-footer text-muted">
 		    <%= time_tag task.created_at, time_ago_in_words(task.created_at) %>
