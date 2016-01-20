@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :projects
+  get 'tasks/new'
+
+  get 'tasks/index'
+
+  get 'tasks/destroy'
+
+  resources :projects do
+    resources :tasks, only: [:create]
+  end
+  
   get 'welcome/index'
   devise_for :users
 

@@ -1,9 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @project.user %>
+  <strong>Titulo:</strong>
+  <%= @project.title %>
 </p>
 
+<p>
+  <strong>Creador:</strong>
+  <%= @project.user %>
+</p>
+<h2 class="display-4 m-t-1 m-b-1">Crea una Tarea</h2>
+  <div class="row">
+      <%= render partial: 'tasks/form' %>
+  </div>
+
+  <% if @project.tasks.any? %>
+	  <h2 class="display-4 m-t-1 m-b-1">Task (<%= @project.tasks.size %>)</h2>
+	  <%= render partial: 'tasks/task', collection: @tasks %>
+  <% end %>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
